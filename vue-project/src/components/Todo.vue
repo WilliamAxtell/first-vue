@@ -35,6 +35,7 @@ onMounted(async () => {
     staffList.value = await fetchStaff();
     console.log(staffList.value);
     staffList.value = staffList.value
+    .filter(a => a.workEmail)
     .filter(a => a.holiday || a.wfh === true)
     .map((a) => {
         if (a.preferredName) {
